@@ -9,4 +9,11 @@ type Thesis = Statement
 
 type ThesisId = int
 
-type LogicWeb = { Claim: Claim; Theses: Map<ThesisId, Thesis> }
+type Argument = { ConclusionId: ThesisId; PremiseIds: ThesisId list }
+
+type LogicWeb =
+    {
+        Claim: Claim
+        Theses: Map<ThesisId, Thesis>
+        Arguments: Argument list
+    }

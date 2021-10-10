@@ -11,3 +11,7 @@ module CreateLogicWebTests =
     [<Property>]
     let ``Empty logic-webs have no theses`` (BasicClaim claim) =
         claim |> makeEmptyLogicWeb |> thesisCount = 0
+
+    [<Property>]
+    let ``Empty logic-webs have no arguments`` (BasicClaim claim) =
+        claim |> makeEmptyLogicWeb |> argumentCount = 0
