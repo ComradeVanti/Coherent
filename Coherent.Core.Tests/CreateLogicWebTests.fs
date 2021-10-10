@@ -6,7 +6,7 @@ open CreateLogicWeb
 open QueryLogicWeb
 
 [<Properties(Arbitrary = [| typeof<ArbClaims> |])>]
-module CreateLogicTests =
+module CreateLogicWebTests =
 
     [<Property>]
     let ``Empty logic-webs have no theses`` (BasicClaim claim) =
