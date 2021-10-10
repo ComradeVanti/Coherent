@@ -12,5 +12,6 @@
 
     <ItemGroup>
       <Compile Include="DomainTypes.fs" />
+      <Compile Include="CreateLogicWeb.fs" />
     </ItemGroup>
 </Project>
