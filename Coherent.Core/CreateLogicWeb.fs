@@ -1,3 +1,3 @@
 ﻿module Coherent.CreateLogicWeb
 
-let makeEmptyLogicWeb claim = { Claim = claim }
+let makeEmptyLogicWeb claim = { Claim = claim; Theses = Map.empty }

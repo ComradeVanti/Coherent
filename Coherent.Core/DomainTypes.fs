@@ -5,4 +5,8 @@ type Statement = string
 
 type Claim = Statement
 
-type LogicWeb = { Claim: Claim }
+type Thesis = Statement
+
+type ThesisId = int
+
+type LogicWeb = { Claim: Claim; Theses: Map<ThesisId, Thesis> }

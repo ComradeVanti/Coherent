@@ -21,4 +21,11 @@
     <ItemGroup>
         <ProjectReference Include="..\Coherent.Core\Coherent.Core.fsproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="GenUtil.fs" />
+      <Compile Include="StatementGen.fs" />
+      <Compile Include="ClaimGen.fs" />
+      <Compile Include="CreateLogicTests.fs" />
+    </ItemGroup>
 </Project>
