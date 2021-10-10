@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <WarnOn>3390;$(WarnOn)</WarnOn>
+        <RootNamespace>Coherent.App</RootNamespace>
+        <Company>PADEAH</Company>
+        <Product>Coherent</Product>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
+        <NeutralLanguage>en</NeutralLanguage>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Coherent.Core\Coherent.Core.fsproj" />
+    </ItemGroup>
+
+</Project>
