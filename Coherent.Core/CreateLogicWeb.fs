@@ -1,4 +1,7 @@
 ﻿module Coherent.CreateLogicWeb
 
 let makeEmptyLogicWeb claim =
-    { Claim = claim; Theses = Map.empty; Arguments = [] }
+    {
+        Theses = Map.empty |> Map.add ClaimThesisId claim
+        Arguments = Map.empty
+    }

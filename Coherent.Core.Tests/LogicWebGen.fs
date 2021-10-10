@@ -1,23 +1,38 @@
 ﻿module Coherent.LogicWebGen
 
-open ClaimGen
 open FsCheck
 open ThesisGen
 open CreateLogicWeb
-open Coherent
 open EditLogicWeb
+open QueryLogicWeb
 
-let genLogicWeb =
+let private genRandomThesisId web = Gen.elements (web |> thesisIds)
+
+let private genExpandedWeb web =
     gen {
-        let! claim = genClaim
-        let! theses = Gen.listOf genThesis
-
-        let addToWeb web thesis = web |> addThesis thesis
-
-        return theses |> List.fold addToWeb (makeEmptyLogicWeb claim)
+        let! id = web |> genRandomThesisId
+        let! premise = genThesis
+        return web |> tryAddPremise id premise
     }
 
-type BasicLogicWeb = BasicLogicWeb of LogicWeb
+let rec private genExpandedWebTimes expansionCount web =
+    gen {
+        if expansionCount = 0 then
+            return web
+        else
+            let! expanded = web |> genExpandedWeb
+            return! expanded |> genExpandedWebTimes (expansionCount - 1)
+    }
+
+
+let genLogicWebOfSize thesisCount =
+    gen {
+        let! claim = genThesis
+        let web = claim |> makeEmptyLogicWeb
+        return! genExpandedWebTimes (thesisCount - 1) web
+    }
+
+type SmallLogicWeb = SmallLogicWeb of LogicWeb
 
 type ArbLogicWebs =
-    static member Basic = genLogicWeb |> asArbOf BasicLogicWeb
+    static member Small = genLogicWebOfSize 5 |> asArbOf SmallLogicWeb

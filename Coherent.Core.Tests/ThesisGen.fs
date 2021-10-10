@@ -1,9 +1,9 @@
 ﻿module Coherent.ThesisGen
 
 open FsCheck
-open ClaimGen
+open StatementGen
 
-let genThesis: Gen<Thesis> = genClaim
+let genThesis: Gen<Thesis> = genStatement
 
 type BasicThesis = BasicThesis of Thesis
 

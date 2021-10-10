@@ -13,22 +13,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FsCheck.Xunit" Version="2.16.3" />
-        <PackageReference Include="FSharp.Core" Version="4.*" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.*" />
+        <PackageReference Include="FsCheck.Xunit" Version="2.16.3"/>
+        <PackageReference Include="FSharp.Core" Version="4.*"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.*"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Coherent.Core\Coherent.Core.fsproj" />
+        <ProjectReference Include="..\Coherent.Core\Coherent.Core.fsproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Include="GenUtil.fs" />
-      <Compile Include="StatementGen.fs" />
-      <Compile Include="ClaimGen.fs" />
-      <Compile Include="ThesisGen.fs" />
-      <Compile Include="LogicWebGen.fs" />
-      <Compile Include="EditLogicWebTests.fs" />
-      <Compile Include="CreateLogicWebTests.fs" />
+        <Compile Include="GenUtil.fs"/>
+        <Compile Include="StatementGen.fs"/>
+        <Compile Include="ThesisGen.fs"/>
+        <Compile Include="LogicWebGen.fs"/>
+        <Compile Include="EditLogicWebTests.fs"/>
+        <Compile Include="CreateLogicWebTests.fs"/>
     </ItemGroup>
 </Project>

@@ -13,7 +13,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Coherent.Core\Coherent.Core.fsproj" />
+        <ProjectReference Include="..\Coherent.Core\Coherent.Core.fsproj"/>
     </ItemGroup>
 
 </Project>

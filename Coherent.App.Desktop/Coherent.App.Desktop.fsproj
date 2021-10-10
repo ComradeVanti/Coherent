@@ -12,19 +12,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Shell.fs" />
-        <Compile Include="Program.fs" />
-        <AvaloniaResource Include="**\*.xaml" />
+        <Compile Include="Shell.fs"/>
+        <Compile Include="Program.fs"/>
+        <AvaloniaResource Include="**\*.xaml"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia.Desktop" Version="0.9.7" />
-        <PackageReference Include="JaggerJo.Avalonia.FuncUI" Version="0.4.0" />
-        <PackageReference Include="JaggerJo.Avalonia.FuncUI.DSL" Version="0.4.0" />
-        <PackageReference Include="JaggerJo.Avalonia.FuncUI.Elmish" Version="0.4.0" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.9.7"/>
+        <PackageReference Include="JaggerJo.Avalonia.FuncUI" Version="0.4.0"/>
+        <PackageReference Include="JaggerJo.Avalonia.FuncUI.DSL" Version="0.4.0"/>
+        <PackageReference Include="JaggerJo.Avalonia.FuncUI.Elmish" Version="0.4.0"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Coherent.App.Core\Coherent.App.Core.fsproj" />
+        <ProjectReference Include="..\Coherent.App.Core\Coherent.App.Core.fsproj"/>
     </ItemGroup>
 </Project>

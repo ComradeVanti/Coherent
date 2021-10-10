@@ -3,17 +3,22 @@ module Coherent.DomainTypes
 
 type Statement = string
 
-type Claim = Statement
-
 type Thesis = Statement
 
 type ThesisId = int
 
-type Argument = { ConclusionId: ThesisId; PremiseIds: ThesisId list }
+type Conclusion = ThesisId
+
+type Premise = ThesisId
+
+type Grounds = Premise list
 
 type LogicWeb =
     {
-        Claim: Claim
         Theses: Map<ThesisId, Thesis>
-        Arguments: Argument list
+        Arguments: Map<Conclusion, Grounds>
     }
+
+
+[<Literal>]
+let ClaimThesisId = 0

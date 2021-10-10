@@ -1,17 +1,19 @@
 ﻿namespace Coherent
 
-open Coherent.ClaimGen
+open Coherent.ThesisGen
 open FsCheck.Xunit
 open CreateLogicWeb
 open QueryLogicWeb
 
-[<Properties(Arbitrary = [| typeof<ArbClaims> |])>]
+[<Properties(Arbitrary = [| typeof<ArbTheses> |])>]
 module CreateLogicWebTests =
 
     [<Property>]
-    let ``Empty logic-webs have no theses`` (BasicClaim claim) =
-        claim |> makeEmptyLogicWeb |> thesisCount = 0
+    let ``Empty logic-webs have the claim as its single thesis``
+        (BasicThesis claim)
+        =
+        claim |> makeEmptyLogicWeb |> theses = [ claim ]
 
     [<Property>]
-    let ``Empty logic-webs have no arguments`` (BasicClaim claim) =
-        claim |> makeEmptyLogicWeb |> argumentCount = 0
+    let ``Empty logic-webs have no arguments`` (BasicThesis claim) =
+        claim |> makeEmptyLogicWeb |> premiseCount = 0

@@ -11,10 +11,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Include="DomainTypes.fs" />
-      <Compile Include="MapUtil.fs" />
-      <Compile Include="QueryLogicWeb.fs" />
-      <Compile Include="EditLogicWeb.fs" />
-      <Compile Include="CreateLogicWeb.fs" />
+        <Compile Include="DomainTypes.fs"/>
+        <Compile Include="ListUtil.fs"/>
+        <Compile Include="MapUtil.fs"/>
+        <Compile Include="QueryLogicWeb.fs"/>
+        <Compile Include="EditLogicWeb.fs"/>
+        <Compile Include="CreateLogicWeb.fs"/>
     </ItemGroup>
 </Project>
