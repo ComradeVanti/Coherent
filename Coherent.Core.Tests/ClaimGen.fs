@@ -4,9 +4,9 @@ open Coherent
 open FsCheck
 open StatementGen
 
-let claimGen: Gen<Claim> = genStatement
+let genClaim: Gen<Claim> = genStatement
 
 type BasicClaim = BasicClaim of Claim
 
 type ArbClaims =
-    static member Basic = genStatement |> asArbOf BasicClaim
+    static member Basic = genClaim |> asArbOf BasicClaim

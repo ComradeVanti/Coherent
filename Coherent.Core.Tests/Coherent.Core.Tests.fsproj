@@ -26,6 +26,9 @@
       <Compile Include="GenUtil.fs" />
       <Compile Include="StatementGen.fs" />
       <Compile Include="ClaimGen.fs" />
+      <Compile Include="ThesisGen.fs" />
+      <Compile Include="LogicWebGen.fs" />
+      <Compile Include="EditLogicWebTests.fs" />
       <Compile Include="CreateLogicWebTests.fs" />
     </ItemGroup>
 </Project>
