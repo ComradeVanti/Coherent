@@ -74,9 +74,34 @@ module EditLogicWebTests =
         (SmallLogicWeb web)
         =
         web |> tryLinkPremise 1 0 = web
-        
+
     [<Property>]
     let ``Trying to link a thesis to itself, does nothing``
         (SmallLogicWeb web)
         =
         web |> tryLinkPremise 0 0 = web
+
+    [<Property>]
+    let ``Successfully adding a conclusion, increases the thesis-count by one``
+        (SmallLogicWeb web)
+        (BasicThesis conclusion)
+        =
+        web
+        |> tryAddConclusion ClaimThesisId conclusion
+        |> thesisCount = (web |> thesisCount) + 1
+
+    [<Property>]
+    let ``Successfully adding a conclusion, increases the conclusion-count by one``
+        (SmallLogicWeb web)
+        (BasicThesis conclusion)
+        =
+        web
+        |> tryAddConclusion ClaimThesisId conclusion
+        |> conclusionCount = (web |> conclusionCount) + 1
+
+    [<Property>]
+    let ``Adding a conclusion to a premise that does not exist, does nothing``
+        (SmallLogicWeb web)
+        (BasicThesis conclusion)
+        =
+        web |> tryAddConclusion -1 conclusion = web

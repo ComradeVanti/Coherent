@@ -10,9 +10,13 @@ let premisesByConclusion web = web.Arguments
 
 let premises web = web |> premisesByConclusion |> values |> List.concat
 
+let conclusions web = web |> premisesByConclusion |> keys
+
 let thesisCount web = web |> thesesById |> Map.count
 
 let premiseCount web = web |> premises |> List.length
+
+let conclusionCount web = web |> conclusions |> List.length
 
 let hasThesisWithId id web = web |> thesesById |> Map.containsKey id
 

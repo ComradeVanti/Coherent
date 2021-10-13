@@ -38,3 +38,14 @@ let tryAddPremise conclusionId premise web =
             newWeb |> addArgument conclusionId premiseId)
     else
         web
+
+let tryAddConclusion premiseId conclusion web =
+    let canAdd = web |> hasThesisWithId premiseId
+
+    if canAdd then
+        web
+        |> addThesis conclusion
+        |> (fun (newWeb, conclusionId) ->
+            newWeb |> addArgument conclusionId premiseId)
+    else
+        web
