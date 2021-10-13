@@ -2,6 +2,7 @@
 
 open Coherent.LogicWebGen
 open Coherent.ThesisGen
+open FsCheck
 open FsCheck.Xunit
 open EditLogicWeb
 open QueryLogicWeb
@@ -61,3 +62,8 @@ module EditLogicWebTests =
         (SmallLogicWeb web)
         =
         web |> tryLinkPremise 0 -1 = web
+        
+    [<Property>]
+    let ``Trying to link theses in a circular way, does nothing``
+        (SmallLogicWeb web) =
+        web |> tryLinkPremise 1 0 = web 

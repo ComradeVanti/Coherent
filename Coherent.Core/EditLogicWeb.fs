@@ -21,6 +21,7 @@ let tryLinkPremise conclusionId premiseId web =
     let canLink =
         web |> hasThesisWithId conclusionId
         && web |> hasThesisWithId premiseId
+        && (not <| (conclusionId |> isPremiseOf premiseId web))
 
     if canLink then
         web |> addArgument conclusionId premiseId
@@ -31,7 +32,9 @@ let tryAddPremise conclusionId premise web =
     let canAdd = web |> hasThesisWithId conclusionId
 
     if canAdd then
-        let newWeb, premiseId = web |> addThesis premise
-        newWeb |> tryLinkPremise conclusionId premiseId
+        web
+        |> addThesis premise
+        |> (fun (newWeb, premiseId) ->
+            newWeb |> addArgument conclusionId premiseId)
     else
         web
