@@ -34,6 +34,7 @@ let rec findAllPremisesFor conclusionId web =
     }
 
 let isPremiseOf conclusionId web premiseId =
-    web
-    |> findAllPremisesFor conclusionId
-    |> Seq.contains premiseId
+    conclusionId = premiseId
+    || (web
+        |> findAllPremisesFor conclusionId
+        |> Seq.contains premiseId)

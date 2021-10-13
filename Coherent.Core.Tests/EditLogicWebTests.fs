@@ -74,3 +74,9 @@ module EditLogicWebTests =
         (SmallLogicWeb web)
         =
         web |> tryLinkPremise 1 0 = web
+        
+    [<Property>]
+    let ``Trying to link a thesis to itself, does nothing``
+        (SmallLogicWeb web)
+        =
+        web |> tryLinkPremise 0 0 = web
