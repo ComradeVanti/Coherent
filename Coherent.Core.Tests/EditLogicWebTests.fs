@@ -87,7 +87,7 @@ module EditLogicWebTests =
         (BasicThesis conclusion)
         =
         web
-        |> tryAddConclusion ClaimThesisId conclusion
+        |> tryAddConclusion (ClaimThesisId + 1) conclusion
         |> thesisCount = (web |> thesisCount) + 1
 
     [<Property>]
@@ -96,7 +96,7 @@ module EditLogicWebTests =
         (BasicThesis conclusion)
         =
         web
-        |> tryAddConclusion ClaimThesisId conclusion
+        |> tryAddConclusion (ClaimThesisId + 1) conclusion
         |> conclusionCount = (web |> conclusionCount) + 1
 
     [<Property>]
@@ -105,3 +105,10 @@ module EditLogicWebTests =
         (BasicThesis conclusion)
         =
         web |> tryAddConclusion -1 conclusion = web
+
+    [<Property>]
+    let ``Adding a conclusion to the claim-thesis, does nothing``
+        (SmallLogicWeb web)
+        (BasicThesis conclusion)
+        =
+        web |> tryAddConclusion ClaimThesisId conclusion = web

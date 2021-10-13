@@ -40,7 +40,9 @@ let tryAddPremise conclusionId premise web =
         web
 
 let tryAddConclusion premiseId conclusion web =
-    let canAdd = web |> hasThesisWithId premiseId
+    let canAdd =
+        web |> hasThesisWithId premiseId
+        && premiseId <> ClaimThesisId
 
     if canAdd then
         web
