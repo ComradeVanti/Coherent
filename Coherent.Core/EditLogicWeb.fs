@@ -5,6 +5,8 @@ open QueryLogicWeb
 
 let private mapTheses mapper web = { web with Theses = web.Theses |> mapper }
 
+let private mapSources mapper web = { web with Sources = web.Sources |> mapper }
+
 let private mapArguments mapper web =
     { web with Arguments = web.Arguments |> mapper }
 
@@ -13,6 +15,12 @@ let private addThesis thesis web =
     let id = maxId + 1
 
     web |> mapTheses (Map.add id thesis), id
+
+let private addSource source web =
+    let maxId = web |> sourceIds |> ifEmptySet [ 0 ] |> List.max
+    let id = maxId + 1
+
+    web |> mapSources (Map.add id source), id
 
 let private addArgument conclusionId premiseId web =
     web |> mapArguments (addToMapList conclusionId premiseId)
@@ -51,3 +59,8 @@ let tryAddConclusion premiseId conclusion web =
             newWeb |> addArgument conclusionId premiseId)
     else
         web
+
+let tryAddSource thesisId source web =
+    let canAdd = web |> hasThesisWithId thesisId
+
+    if canAdd then web |> addSource source |> fst else web

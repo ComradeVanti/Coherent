@@ -1,12 +1,17 @@
 ﻿namespace Coherent
 
 open Coherent.LogicWebGen
+open Coherent.SourceGen
 open Coherent.ThesisGen
 open FsCheck.Xunit
 open EditLogicWeb
 open QueryLogicWeb
 
-[<Properties(Arbitrary = [| typeof<ArbTheses>; typeof<ArbLogicWebs> |])>]
+[<Properties(Arbitrary = [|
+    typeof<ArbTheses>
+    typeof<ArbLogicWebs>
+    typeof<ArbSources>
+  |])>]
 module EditLogicWebTests =
 
     [<Property>]
@@ -112,3 +117,19 @@ module EditLogicWebTests =
         (BasicThesis conclusion)
         =
         web |> tryAddConclusion ClaimThesisId conclusion = web
+
+    [<Property>]
+    let ``Successfully adding a source, increases the source-count by one``
+        (SmallLogicWeb web)
+        (ValidSource source)
+        =
+        web |> tryAddSource ClaimThesisId source |> sourceCount = (web
+                                                                   |> sourceCount)
+                                                                  + 1
+
+    [<Property>]
+    let ``Adding a source to a thesis that does not exist, does nothing``
+        (SmallLogicWeb web)
+        (ValidSource source)
+        =
+        web |> tryAddSource -1 source = web

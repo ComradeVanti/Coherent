@@ -17,7 +17,7 @@ module CreateLogicWebTests =
     [<Property>]
     let ``Empty logic-webs have no arguments`` (BasicThesis claim) =
         claim |> makeEmptyLogicWeb |> premiseCount = 0
-        
+
     [<Property>]
     let ``Empty logic-webs have no sources`` (BasicThesis claim) =
         claim |> makeEmptyLogicWeb |> sourceCount = 0

@@ -20,6 +20,8 @@ let conclusionCount web = web |> conclusions |> List.length
 
 let sourcesById web = web.Sources
 
+let sourceIds web = web |> sourcesById |> keys
+
 let sourceCount web = web |> sourcesById |> Map.count
 
 let hasThesisWithId id web = web |> thesesById |> Map.containsKey id
