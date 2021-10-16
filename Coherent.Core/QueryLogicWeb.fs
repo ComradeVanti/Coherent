@@ -18,6 +18,10 @@ let premiseCount web = web |> premises |> List.length
 
 let conclusionCount web = web |> conclusions |> List.length
 
+let sourcesById web = web.Sources
+
+let sourceCount web = web |> sourcesById |> Map.count
+
 let hasThesisWithId id web = web |> thesesById |> Map.containsKey id
 
 let tryFindGroundsFor conclusionId web =
